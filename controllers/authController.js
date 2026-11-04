@@ -6,8 +6,8 @@ const jwt = require("jsonwebtoken");
 // Cookie settings
 const cookieOptions = {
   httpOnly: true,
-  secure: process.env.NODE_ENV === "production",
-  sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+  secure: process.env.NODE_ENV === "development",
+  sameSite: process.env.NODE_ENV === "development" ? "none" : "lax",
   maxAge: 60 * 60 * 1000,
   path: "/",
 };
@@ -152,10 +152,10 @@ const login = async (req, res) => {
 // LOGOUT
 const logout = (req, res) => {
   res.clearCookie("accessToken", {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    path: "/",
+   httpOnly: true,
+  secure: process.env.NODE_ENV === "development",
+  sameSite: process.env.NODE_ENV === "development" ? "none" : "lax",
+  path: "/",
   });
 
   res.json({
