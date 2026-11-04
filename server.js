@@ -11,11 +11,14 @@ const donorRoutes = require("./routes/donorRoutes");
 
 const app = express();
 
+const allowedOrigins = [
+  "https://fikre-sadaat-frontend.vercel.app",
+];
+
 app.use(cors({
-  origin: process.env.CLIENT_URL,
+  origin: allowedOrigins,
   credentials: true,
 }));
-
 app.use(express.json());
 app.use(cookieParser());
 
