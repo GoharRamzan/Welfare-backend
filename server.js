@@ -13,6 +13,7 @@ const app = express();
 
 const allowedOrigins = [
   "https://fikre-sadaat-frontend.vercel.app",
+  "http://localhost:5173"
 ];
 
 app.use(cors({
